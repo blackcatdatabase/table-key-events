@@ -69,8 +69,8 @@ erDiagram
     ENUM(''cron'',''admin'',''api'',''manual'') source
     DATETIME(6) created_at
   }
-  KEY_EVENTS }o--|| CRYPTO_KEYS : (key_id)
-  KEY_EVENTS }o--|| USERS : (actor_id)
+  KEY_EVENTS }o--|| CRYPTO_KEYS : "key_id"
+  KEY_EVENTS }o--|| USERS : "actor_id"
 ```
 
 ## Indexes
