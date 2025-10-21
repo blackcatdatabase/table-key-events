@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-> Schema package for table **key_events** (repo: $slug).
+> Schema package for table **key_events** (repo: `key-events`).
 
 ## Files
 ```
@@ -43,12 +43,12 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | id | BIGINT UNSIGNED | — | — | AUTO_INCREMENT, PK |
 | key_id | BIGINT UNSIGNED | YES | — |  |
 | basename | VARCHAR(100) | YES | — |  |
-| event_type | ENUM(''created'',''rotated'',''activated'',''retired'',''compromised'',''deleted'',''used_encrypt'',''used_decrypt'',''access_failed'',''backup'',''restore'') | NO | — |  |
+| event_type | ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') | NO | — |  |
 | actor_id | BIGINT UNSIGNED | YES | — |  |
 | job_id | BIGINT UNSIGNED | YES | — |  |
 | note | TEXT | YES | — |  |
 | meta | JSON | YES | — |  |
-| source | ENUM(''cron'',''admin'',''api'',''manual'') | NO | '' |  |
+| source | ENUM('cron','admin','api','manual') | NO | '' |  |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
 
 ## Relationships
@@ -58,16 +58,16 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ```mermaid
 erDiagram
   KEY_EVENTS {
-    BIGINT id PK
-    BIGINT key_id
-    VARCHAR(100) basename
-    ENUM(''created'',''rotated'',''activated'',''retired'',''compromised'',''deleted'',''used_encrypt'',''used_decrypt'',''access_failed'',''backup'',''restore'') event_type
-    BIGINT actor_id
-    BIGINT job_id
-    TEXT note
+    INT id PK
+    INT key_id
+    VARCHAR basename
+    ENUM event_type
+    INT actor_id
+    INT job_id
+    VARCHAR note
     JSON meta
-    ENUM(''cron'',''admin'',''api'',''manual'') source
-    DATETIME(6) created_at
+    ENUM source
+    DATETIME created_at
   }
   KEY_EVENTS }o--|| CRYPTO_KEYS : "key_id"
   KEY_EVENTS }o--|| USERS : "actor_id"
