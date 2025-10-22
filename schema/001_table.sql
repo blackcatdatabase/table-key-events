@@ -1,4 +1,4 @@
--- Auto-generated from schema-map.psd1 (map@1e83bb6)
+-- Auto-generated from schema-map.psd1 (map@6cefe8e)
 -- table: key_events
 CREATE TABLE IF NOT EXISTS key_events (
   id BIGINT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
