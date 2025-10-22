@@ -14,5 +14,5 @@ Operational log for crypto key lifecycle and usage.
 | job_id | BIGINT UNSIGNED | YES | — | Batch/job id, optional. |  |
 | note | TEXT | YES | — | Free-form note. |  |
 | meta | JSON | YES | — | JSON meta about event. |  |
-| source | ENUM('cron','admin','api','manual') | NO | ''admin'' | Origin of event. | enum: cron, admin, api, manual |
+| source | ENUM('cron','admin','api','manual') | NO | 'admin' | Origin of event. | enum: cron, admin, api, manual |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Timestamp (UTC). |  |

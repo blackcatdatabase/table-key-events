@@ -50,7 +50,7 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 | job_id | BIGINT UNSIGNED | YES | — |  |
 | note | TEXT | YES | — |  |
 | meta | JSON | YES | — |  |
-| source | ENUM('cron','admin','api','manual') | NO | '' |  |
+| source | ENUM('cron','admin','api','manual') | NO | 'admin' |  |
 | created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
 
 ## Relationships
