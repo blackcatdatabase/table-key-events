@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\KeyEvents;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 
 final class ContractRepository {
     public function __construct(private Database $db) {}

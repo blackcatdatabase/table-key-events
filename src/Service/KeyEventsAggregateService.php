@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace BlackCat\Database\Packages\KeyEvents\Service;
 
-use BlackCat\Core\Database\Database;
+use BlackCat\Core\Database;
 use BlackCat\Database\Packages\KeyEvents\Dto\KeyEventDto;
 use BlackCat\Database\Packages\KeyEvents\Mapper\KeyEventDtoMapper;
 use BlackCat\Database\Packages\KeyEvents\Repository\KeyEventRepository;
