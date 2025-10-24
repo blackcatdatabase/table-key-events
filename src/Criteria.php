@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\KeyEvents;
 /**
  * Bezpečný builder WHERE/ORDER/LIMIT.
  * - whitelist filtrů: [ 'id', 'key_id', 'basename', 'event_type', 'actor_id', 'job_id', 'note', 'meta', 'source', 'created_at' ]
- * - whitelist pro LIKE hledání: [ 'basename', 'note' ]
+ * - whitelist pro LIKE hledání: [ 'basename', 'event_type', 'note', 'source' ]
  */
 final class Criteria {
     /** @var array<string,mixed> */
@@ -61,7 +61,7 @@ final class Criteria {
 
         // fulltext/LIKE (přes whitelist)
         if ($this->search !== null) {
-            $searchCols = [ 'basename', 'note' ];
+            $searchCols = [ 'basename', 'event_type', 'note', 'source' ];
             $likeParts = [];
             foreach ($searchCols as $i=>$c) {
                 if ($c === '') continue;

@@ -6,7 +6,7 @@ namespace BlackCat\Database\Packages\KeyEvents;
 final class Definitions {
     // --- základní metadata ---
     public static function table(): string { return 'key_events'; }
-    public static function contractView(): string { return 'v_key_events_contract'; }
+    public static function contractView(): string { return 'vw_key_events'; }
     /** @return string[] */
     public static function columns(): array { return [ 'id', 'key_id', 'basename', 'event_type', 'actor_id', 'job_id', 'note', 'meta', 'source', 'created_at' ]; }
     public static function pk(): string { return 'id'; }
