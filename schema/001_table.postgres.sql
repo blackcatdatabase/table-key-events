@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@mtime:2025-10-24T09:46:38Z)
+-- Auto-generated from schema-map-postgres.psd1 (map@38d5403)
 -- engine: postgres
 -- table:  key_events
 CREATE TABLE IF NOT EXISTS key_events (
@@ -13,5 +13,5 @@ CREATE TABLE IF NOT EXISTS key_events (
   "source" TEXT NOT NULL DEFAULT 'admin',
   created_at TIMESTAMPTZ(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
   CONSTRAINT chk_key_events_type CHECK (event_type IN ('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore')),
-  CONSTRAINT chk_key_events_source CHECK (source IN ('cron','admin','api','manual'))
+  CONSTRAINT chk_key_events_source CHECK ("source" IN ('cron','admin','api','manual'))
 );
