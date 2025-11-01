@@ -1,8 +1,8 @@
--- Auto-generated from schema-views-mysql.psd1 (map@38d5403)
+-- Auto-generated from schema-views-mysql.psd1 (map@c5e4097)
 -- engine: mysql
 -- table:  key_events
 -- Contract view for [key_events]
-CREATE OR REPLACE SQL SECURITY INVOKER VIEW vw_key_events AS
+CREATE OR REPLACE ALGORITHM=MERGE SQL SECURITY INVOKER VIEW vw_key_events AS
 SELECT
   id,
   key_id,
@@ -12,6 +12,6 @@ SELECT
   job_id,
   note,
   meta,
-  source,
+  `source`,
   created_at
 FROM key_events;
