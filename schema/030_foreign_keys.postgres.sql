@@ -1,4 +1,4 @@
--- Auto-generated from schema-map-postgres.psd1 (map@9d3471b)
+-- Auto-generated from schema-map-postgres.psd1 (map@62c9c93)
 -- engine: postgres
 -- table:  key_events
 ALTER TABLE key_events ADD CONSTRAINT fk_key_events_key FOREIGN KEY (key_id) REFERENCES crypto_keys(id) ON DELETE SET NULL;

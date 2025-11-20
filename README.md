@@ -2,7 +2,7 @@
 
 ![SQL](https://img.shields.io/badge/SQL-MySQL%208.0%2B-4479A1?logo=mysql&logoColor=white) ![License](https://img.shields.io/badge/license-BlackCat%20Proprietary-red) ![Status](https://img.shields.io/badge/status-stable-informational) ![Generated](https://img.shields.io/badge/generated-from%20schema--map-blue)
 
-<!-- Auto-generated from schema-map.psd1 @ 6cefe8e (2025-10-22T20:27:41+02:00) -->
+<!-- Auto-generated from schema-map-postgres.psd1 @ 62c9c93 (2025-11-20T21:38:11+01:00) -->
 
 > Schema package for table **key_events** (repo: `key-events`).
 
@@ -42,16 +42,16 @@ mysql -h 127.0.0.1 -P 3307 -u root -proot app < schema/030_foreign_keys.sql
 ## Columns
 | Column | Type | Null | Default | Extra |
 |-------:|:-----|:----:|:--------|:------|
-| id | BIGINT UNSIGNED | — | — | AUTO_INCREMENT, PK |
-| key_id | BIGINT UNSIGNED | YES | — |  |
+| id | BIGINT | — | AS | PK |
+| key_id | BIGINT | YES | — |  |
 | basename | VARCHAR(100) | YES | — |  |
-| event_type | ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') | NO | — |  |
-| actor_id | BIGINT UNSIGNED | YES | — |  |
-| job_id | BIGINT UNSIGNED | YES | — |  |
+| event_type | TEXT | NO | — |  |
+| actor_id | BIGINT | YES | — |  |
+| job_id | BIGINT | YES | — |  |
 | note | TEXT | YES | — |  |
-| meta | JSON | YES | — |  |
-| source | ENUM('cron','admin','api','manual') | NO | 'admin' |  |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) |  |
+| meta | JSONB | YES | — |  |
+| source | TEXT | NO | 'admin' |  |
+| created_at | TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) |  |
 
 ## Relationships
 - FK → **crypto_keys** via (key_id) (ON DELETE SET NULL).
@@ -63,20 +63,20 @@ erDiagram
     INT id PK
     INT key_id
     VARCHAR basename
-    ENUM event_type
+    VARCHAR event_type
     INT actor_id
     INT job_id
     VARCHAR note
-    JSON meta
-    ENUM source
-    DATETIME created_at
+    JSONB meta
+    VARCHAR source
+    TIMESTAMPTZ created_at
   }
   KEY_EVENTS }o--|| CRYPTO_KEYS : "key_id"
   KEY_EVENTS }o--|| USERS : "actor_id"
 ```
 
 ## Indexes
-- 1 deferred index statement(s) in schema/020_indexes.sql.
+- 2 deferred index statement(s) in schema/020_indexes.sql.
 
 ## Notes
 - Generated from the umbrella repository **blackcat-database** using `scripts/schema-map.psd1`.
