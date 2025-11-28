@@ -1,6 +1,7 @@
--- Auto-generated from schema-map-postgres.psd1 (map@62c9c93)
+-- Auto-generated from schema-map-postgres.psd1 (map@mtime:2025-11-21T00:25:46Z)
 -- engine: postgres
 -- table:  key_events
+
 CREATE INDEX IF NOT EXISTS idx_key_events_key_created ON key_events (key_id, created_at);
 
 CREATE INDEX IF NOT EXISTS idx_key_events_basename ON key_events (basename);
