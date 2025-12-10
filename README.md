@@ -78,8 +78,8 @@ graph LR
   classDef accent fill:#1d1b4c,stroke:#a855f7,stroke-width:2px,color:#f5e1ff;
   classDef inbound fill:#0f172a,stroke:#10b981,stroke-width:2px,color:#e2fcef;
   key_events["key_events"]:::center
-  key_events -->|FK| users["users"]:::link
-  key_events -->|FK| crypto_keys["crypto_keys"]:::accent
+  key_events -->|FK| crypto_keys["crypto_keys"]:::link
+  key_events -->|FK| users["users"]:::accent
   linkStyle 0 stroke:#ff6b6b,stroke-width:3px,opacity:0.92;
   linkStyle 1 stroke:#64dfdf,stroke-width:3px,opacity:0.92;
 ```
@@ -99,8 +99,8 @@ _No engine differences detected._
 
 ## Constraints Snapshot
 - `created_at` – default=CURRENT_TIMESTAMP(6)
-- `source` – default=admin, enum
 - `event_type` – enum
+- `source` – default=admin, enum
 
 ## Schema Files
 | File | Engine |
