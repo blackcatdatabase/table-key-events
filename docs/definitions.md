@@ -7,14 +7,14 @@ Operational log for crypto key lifecycle and usage.
 | --- | --- | --- | --- | --- |
 | actor_id | BIGINT | YES |  | Actor (FK users.id), optional. |
 | basename | VARCHAR(100) | YES |  | Key basename, if id not present. |
-| created_at | DATETIME(6) | NO | CURRENT_TIMESTAMP(6) | Timestamp (UTC). |
-| event_type | ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') | NO |  | Event type. (enum: created, rotated, activated, retired, compromised, deleted, used_encrypt, used_decrypt, access_failed, backup, restore) |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Timestamp (UTC). |
+| event_type | mysql: ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') / postgres: TEXT | NO |  | Event type. (enum: created, rotated, activated, retired, compromised, deleted, used_encrypt, used_decrypt, access_failed, backup, restore) |
 | id | BIGINT | NO |  | Surrogate primary key. |
 | job_id | BIGINT | YES |  | Batch/job id, optional. |
 | key_id | BIGINT | YES |  | Key (FK crypto_keys.id), optional. |
-| meta | JSON | YES |  | JSON meta about event. |
+| meta | mysql: JSON / postgres: JSONB | YES |  | JSON meta about event. |
 | note | TEXT | YES |  | Free-form note. |
-| source | ENUM('cron','admin','api','manual') | NO | admin | Origin of event. (enum: cron, admin, api, manual) |
+| source | mysql: ENUM('cron','admin','api','manual') / postgres: TEXT | NO | admin | Origin of event. (enum: cron, admin, api, manual) |
 
 ## Engine Details
 
