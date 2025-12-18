@@ -1,0 +1,38 @@
+{
+  "tables": {
+    "key_events": {
+      "columns": {
+        "actor_id": {
+          "strategy": "passthrough"
+        },
+        "basename": {
+          "strategy": "passthrough"
+        },
+        "created_at": {
+          "strategy": "passthrough"
+        },
+        "event_type": {
+          "strategy": "passthrough"
+        },
+        "id": {
+          "strategy": "passthrough"
+        },
+        "job_id": {
+          "strategy": "passthrough"
+        },
+        "key_id": {
+          "strategy": "passthrough"
+        },
+        "meta": {
+          "strategy": "passthrough"
+        },
+        "note": {
+          "strategy": "passthrough"
+        },
+        "source": {
+          "strategy": "passthrough"
+        }
+      }
+    }
+  }
+}
