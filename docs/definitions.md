@@ -3,18 +3,18 @@
 Operational log for crypto key lifecycle and usage.
 
 ## Columns
-| Column | Type | Null | Default | Description |
-| --- | --- | --- | --- | --- |
-| id | BIGINT | NO |  | Surrogate primary key. |
-| key_id | BIGINT | YES |  | Key (FK crypto_keys.id), optional. |
-| basename | VARCHAR(100) | YES |  | Key basename, if id not present. |
-| event_type | mysql: ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') / postgres: TEXT | NO |  | Event type. (enum: created, rotated, activated, retired, compromised, deleted, used_encrypt, used_decrypt, access_failed, backup, restore) |
-| actor_id | BIGINT | YES |  | Actor (FK users.id), optional. |
-| job_id | BIGINT | YES |  | Batch/job id, optional. |
-| note | TEXT | YES |  | Free-form note. |
-| meta | mysql: JSON / postgres: JSONB | YES |  | JSON meta about event. |
-| source | mysql: ENUM('cron','admin','api','manual') / postgres: TEXT | NO | admin | Origin of event. (enum: cron, admin, api, manual) |
-| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Timestamp (UTC). |
+| Column | Type | Null | Default | Description | Crypto |
+| --- | --- | --- | --- | --- | --- |
+| id | BIGINT | NO |  | Surrogate primary key. |  |
+| key_id | BIGINT | YES |  | Key (FK crypto_keys.id), optional. |  |
+| basename | VARCHAR(100) | YES |  | Key basename, if id not present. |  |
+| event_type | mysql: ENUM('created','rotated','activated','retired','compromised','deleted','used_encrypt','used_decrypt','access_failed','backup','restore') / postgres: TEXT | NO |  | Event type. (enum: created, rotated, activated, retired, compromised, deleted, used_encrypt, used_decrypt, access_failed, backup, restore) |  |
+| actor_id | BIGINT | YES |  | Actor (FK users.id), optional. |  |
+| job_id | BIGINT | YES |  | Batch/job id, optional. |  |
+| note | TEXT | YES |  | Free-form note. |  |
+| meta | mysql: JSON / postgres: JSONB | YES |  | JSON meta about event. |  |
+| source | mysql: ENUM('cron','admin','api','manual') / postgres: TEXT | NO | admin | Origin of event. (enum: cron, admin, api, manual) |  |
+| created_at | mysql: DATETIME(6) / postgres: TIMESTAMPTZ(6) | NO | CURRENT_TIMESTAMP(6) | Timestamp (UTC). |  |
 
 ## Engine Details
 
